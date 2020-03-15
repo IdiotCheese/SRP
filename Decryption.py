@@ -26,7 +26,7 @@ blok = blokstørrelse*2
 
 #brug find fuctionen til at finde ud af hvilken værdi tallene har
 #denne variabel er til at skrive, hvad der skal enkrypteres
-message = 'Citizen X'
+message = 'Freja'
 print('Tekst som skal krypteres: ' + message + '\n')
 print('krypteres med blokstoerrelse '+str(blokstørrelse)+
 ', p='+str(p)+', q='+str(q)+', og k='+str(k)+'\n')
@@ -46,7 +46,6 @@ for a in message:
 plainmessage = [plainmessage[i:i+blok] for i in range(0, len(plainmessage), blok)]
 
 #denne laver det fra en list til en integer, som jeg da kan regne med
-#denne process fjerner 0'erne fra teksten, hvilket godt kan blive problematisk?
 plainmessage = list(map(int, plainmessage))
 
 print("Dette er den ikke-krypterede klartekst:")
@@ -98,8 +97,17 @@ print('dette er den dekrypterede besked:')
 print(decmessage)
 print('\n')
 
-if decmessage == plainmessage:
-    print('Plaintext og den dekrypterede besked er ens')
-else:
-    print('Plaintext og den dekrypterede besked er ikke ens')
+#her laver jeg en variabel, som til sidst bliver ordet igen
+dectext = ''
 
+for i in decmessage:
+    dectext += alf[i]
+
+
+print("Den dekrypterede besked bliver da: " + dectext)
+
+
+if dectext == message:
+    print('Den originale besked og den dekrypterede besked er ens')
+else:
+    print('Den originale besked og den dekrypterede besked er ikke ens')

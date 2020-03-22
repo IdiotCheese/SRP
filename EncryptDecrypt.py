@@ -1,4 +1,4 @@
-#definerer alfabetet som en string, hvor a=1, derfor blank space i starten
+#definerer alfabetet som en string, hvor a=1, derfor 0 i starten
 #desuden står den igen, det er fordi man på den måde kan få store bogstaver.
 alf = '0abcdefghijklmnopqrstuvwxyzæøåABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ !?,.'
 
@@ -43,7 +43,7 @@ for a in message:
 
 #denne er til for at sørge for at alting er splittet op i par, da jeg bruger blokstørrelse 1
 #den skal måske forstås lidt bedre
-plainmessage = [plainmessage[i:i+blok] for i in range(0, len(plainmessage), blok)]
+plainmessage = [plainmessage[a:a+blok] for a in range(0, len(plainmessage), blok)]
 
 #denne laver det fra en list til en integer, som jeg da kan regne med
 plainmessage = list(map(int, plainmessage))

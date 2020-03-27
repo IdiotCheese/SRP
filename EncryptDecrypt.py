@@ -1,7 +1,6 @@
 #definerer alfabetet som en string, hvor a=1, derfor 0 i starten
-#desuden står den igen, det er fordi man på den måde kan få store bogstaver.
+#desuden står alfabetet igen, det er fordi man på den måde kan få store bogstaver.
 alf = '0abcdefghijklmnopqrstuvwxyzæøåABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ !?,.'
-
 
 #definer forskellige vigtige funktioner
 p = 17
@@ -42,7 +41,7 @@ for a in message:
         plainmessage += str(alf.index(a))
 
 #denne er til for at sørge for at alting er splittet op i par, da jeg bruger blokstørrelse 1
-#den skal måske forstås lidt bedre
+#blok er derfor 2. Den adskiller min string i par, og tilføjer dem til listen. 
 plainmessage = [plainmessage[a:a+blok] for a in range(0, len(plainmessage), blok)]
 
 #denne laver det fra en list til en integer, som jeg da kan regne med
@@ -62,13 +61,11 @@ print("Dette er den krypterede tekst:")
 print(encmessage)
 print('\n')
 
-#her kommer euklids algoritme-delen
+#her kommer  euklids udvidede algoritme-delen
 #her skal der findes 2 tal, sådan at k*u-phim*v=1
-
-
 #her defineres en funktion, som retunerer extended greatest common devisor
+#den returnerer (g, x, y), i forhold til euklids udvide algoritme, nemlig a*x+b*y=g hvor g er sfd for a og b
 def usfd(a, b):
-    """return (g, x, y) such that a*x + b*y = g = sfd(a, b)"""
     x0, x1, y0, y1 = 0, 1, 1, 0
     while a != 0:
         #divmod er en funktion som dividerer argument 1 med argument 2, og printer (resultat, remainder)
@@ -96,6 +93,7 @@ print(decmessage)
 print('\n')
 
 #her laver jeg en variabel, som til sidst bliver ordet igen
+
 dectext = ''
 
 for a in decmessage:
